@@ -24,7 +24,7 @@ plugins:
     enabled: true
   tslint:
     enabled: true
-    config: app/frontend/tslint.json
+##    config: ./app/frontend/tslint.json
   fixme:
     enabled: false
     config:
