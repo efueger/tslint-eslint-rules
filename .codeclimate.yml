@@ -1,0 +1,60 @@
+version: "2"
+checks:
+  file-lines:
+    enabled: false
+    config:
+      threshold: 500
+  method-count:
+    enabled: false
+    config:
+      threshold: 50
+  method-count:
+    enabled: false
+    config:
+      threshold: 100
+
+plugins:
+  brakeman:
+    enabled: false # was true
+  bundler-audit:
+    enabled: false # was true
+  scss-lint:
+    enabled: false
+  eslint:
+    enabled: true
+  tslint:
+    enabled: true
+    config: ./app/frontend/tslint.json
+  fixme:
+    enabled: false
+    config:
+      strings:
+      - FIXME
+      - BUG
+      - DO NOT COMMIT
+  rubocop:
+    enabled: false
+    # Configure checks in .rubocop.yml
+  duplication:
+    enabled: false
+    config:
+      languages:
+        ruby:
+          mass_threshold: 18 # default 18
+        javascript:
+          mass_threshold: 40 # default 40
+exclude_patterns:
+- config/
+- doc/
+- db/
+- spec/
+- node_modules/
+# ** ratings is deprecated -EAKM 2018/01/22 **
+# ratings:
+#   paths:
+#   - app/
+#   - lib/
+#   - "app/javascript/**.js"
+#   - "app/javascript/**.ts"
+#   - "app/javascript/**.scss"
+#   - "app/javascript/**.sass"
